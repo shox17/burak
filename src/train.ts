@@ -23,9 +23,26 @@
 
 // MASALAN: getPositive([1, -4, 2]) return qiladi "12"
 
-function getPositive(arr: number[]): string {
-    let positiveArr = arr.filter(num => num > 0);
-    return positiveArr.join('');
+// function getPositive(arr: number[]): string {
+//     let positiveArr = arr.filter(num => num > 0);
+//     return positiveArr.join('');
+// }
+
+// console.log(getPositive([1, -4, 2])); // "12"
+
+// H2 - TASK: 
+// Shunday function tuzing, unga string argument pass bolsin. 
+// Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
+// MASALAN: getDigits("m14i1t") return qiladi "141"
+
+function getDigits(str: string): string {
+    let digits: string = '';
+    for (let char of str) {
+        if(!isNaN(parseInt(char))) {
+            digits += char;
+        }  
+    }
+    return digits; 
 }
 
-console.log(getPositive([1, -4, 2])); // "12"
+console.log(getDigits("m14i1t")); // "141"
