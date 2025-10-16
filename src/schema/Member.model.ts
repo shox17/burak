@@ -54,6 +54,7 @@ const memberSchema = new Schema({
    { timestamps:true} // createdAt, updatedAt
 );
 
+// The Model provides direct database access
 export default mongoose.model("Member", memberSchema);
 
 

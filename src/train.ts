@@ -1,3 +1,19 @@
+/* Project 
+- loging standarts
+- Naming standarts
+   function, method, variable => Camel case      goHome 
+   class => Pacal case                           MemberService 
+   folder => KEBAB case 
+   css => SNAKE  case                 
+  - Error handling 
+
+*/
+
+// cluster => database => collection=> document => dataSet 
+// CRUD => Create, Read, Update, Delete
+// Mongoose => we used mongoose because it works well with MongoDB and Nodejs
+// MVC => Model View Controller
+
 // G - Task
 
 // Yagona parametrga ega function tuzing.
