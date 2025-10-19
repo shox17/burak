@@ -51,14 +51,44 @@
 // Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
 // MASALAN: getDigits("m14i1t") return qiladi "141"
 
-function getDigits(str: string): string {
-    let digits: string = '';
-    for (let char of str) {
-        if(!isNaN(parseInt(char))) {
-            digits += char;
-        }  
+// function getDigits(str: string): string {
+//     let digits: string = '';
+//     for (let char of str) {
+//         if(!isNaN(parseInt(char))) {
+//             digits += char;
+//         }  
+//     }
+//     return digits; 
+// }
+
+// console.log(getDigits("m14i1t")); // "141"
+
+// ==============================================================
+
+// TASK-I:
+
+// Shunday function tuzing, u parametrdagi array ichida eng ko'p
+// takrorlangan raqamni topib qaytarsin.
+// MASALAN: majorityElement([1, 2, 3, 4, 5, 4, 3, 4]); return 4
+// Yuqoridag misolda argument sifatida kiritilayotgan 
+// array tarkibida 4 soni ko'p takrorlanganligi uchun 4'ni return qilmoqda.
+
+function majorityElement(arr: number[]): number {
+    let countMap = new Map<number, number>();
+    let maxCount = 0;
+    let maxElement: number | null = null;
+
+    for (let num of arr) {
+        let count = (countMap.get(num) || 0) + 1;
+        countMap.set(num, count);
+        
+        if (count > maxCount) {
+            maxCount = count;
+            maxElement = num;
+        }
     }
-    return digits; 
+
+    return maxElement!;
 }
 
-console.log(getDigits("m14i1t")); // "141"
+console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4])); // Output: 4
