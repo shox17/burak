@@ -14,6 +14,13 @@
 // Mongoose => we used mongoose because it works well with MongoDB and Nodejs
 // MVC => Model View Controller
 
+/*
+ Cookies:
+ request join => each request will have the created cookie
+ self destroy after the session expired
+
+*/
+
 // G - Task
 
 // Yagona parametrga ega function tuzing.
@@ -100,14 +107,35 @@
 // Yuqoridagi text tarkibida 'Uzbekistan'
 // eng uzun so'z bo'lganligi uchun 'Uzbekistan'ni qaytarmoqda
 
-function findLongestWord(str: string): string {
-  let words = str.split(" ");
-  let longestWord = "";
-  for (let word of words) {
-    if (word.length > longestWord.length) {
-      longestWord = word;
+// function findLongestWord(str: string): string {
+//   let words = str.split(" ");
+//   let longestWord = "";
+//   for (let word of words) {
+//     if (word.length > longestWord.length) {
+//       longestWord = word;
+//     }
+//   }
+//   return longestWord;
+// }
+// console.log(findLongestWord("I came from Uzbekistan!")); // Output: "Uzbekistan!"
+
+// =============================================================
+
+// TASK K: 
+
+// Shunday function yozing, u string qabul qilsin va 
+// string ichidagi unli harflar sonini qaytarsin.
+// MASALAN: countVowels("string") return 1;
+
+function countVowels(str: string): number {
+    const vowels = "aeiouAEIOU";
+    let count = 0;
+    for (let char of str) {
+        if (vowels.includes(char)) {
+            count++;
+        }   
     }
-  }
-  return longestWord;
+    return count;
 }
-console.log(findLongestWord("I came from Uzbekistan!")); // Output: "Uzbekistan!"
+
+console.log(countVowels("string")); // Output: 1
