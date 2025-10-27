@@ -14,7 +14,7 @@ routerAdmin
   .get("/signup", restaurantController.getSignup)
   .post(
     "/signup",
-    makeUploader("members").single("memberImage"),
+    makeUploader("members").single("memberImage"), // Middleware to handle file upload => req.file
     restaurantController.processSignup
   );
 
@@ -25,18 +25,18 @@ routerAdmin.get("/check-me", restaurantController.checkAuthSession);
 /** Product */
 routerAdmin.get(
   "/product/all",
-  restaurantController.verifyRestaurant,
+  restaurantController.verifyRestaurant, // Middleware to verify restaurant  => req.member
   productController.getAllProducts
 );
 routerAdmin.post(
   "/product/create",
-  restaurantController.verifyRestaurant,
-  makeUploader("products").array("productImages", 5),
+  restaurantController.verifyRestaurant,  // Middleware to verify restaurant  => req.member
+  makeUploader("products").array("productImages", 5), // Middleware to handle file uploads => req.files
   productController.createNewProduct
 );
 routerAdmin.post(
   "/product/:id",
-  restaurantController.verifyRestaurant,
+  restaurantController.verifyRestaurant, // Middleware to verify restaurant  => req.member
   productController.updateChosenProduct
 );
 
