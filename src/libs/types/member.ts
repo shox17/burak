@@ -36,6 +36,8 @@ export interface LoginInput {
 }
 
 export interface AdminRequest extends Request {
-    member: Member;
-    session: Session & {member: Member};
+    member: Member; // Logged-in member information
+    session: Session & {member: Member}; // Session with member info
+    file: Express.Multer.File; // Single uploaded file
+    files: Express.Multer.File[]; // Multiple uploaded files
 }
