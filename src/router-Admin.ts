@@ -10,13 +10,11 @@ routerAdmin
   .get("/login", restaurantController.getLogin)
   .post("/login", restaurantController.processLogin);
 
-routerAdmin
-  .get("/signup", restaurantController.getSignup)
-  .post(
-    "/signup",
-    makeUploader("members").single("memberImage"), // Middleware to handle file upload => req.file
-    restaurantController.processSignup
-  );
+routerAdmin.get("/signup", restaurantController.getSignup).post(
+  "/signup",
+  makeUploader("members").single("memberImage"), // Middleware to handle file upload => req.file
+  restaurantController.processSignup
+);
 
 routerAdmin.get("/logout", restaurantController.logout);
 
@@ -30,7 +28,7 @@ routerAdmin.get(
 );
 routerAdmin.post(
   "/product/create",
-  restaurantController.verifyRestaurant,  // Middleware to verify restaurant  => req.member
+  restaurantController.verifyRestaurant, // Middleware to verify restaurant  => req.member
   makeUploader("products").array("productImages", 5), // Middleware to handle file uploads => req.files
   productController.createNewProduct
 );
@@ -41,5 +39,10 @@ routerAdmin.post(
 );
 
 /**  User */
+routerAdmin.get(
+  "/user/all",
+  restaurantController.verifyRestaurant, // Middleware to verify restaurant  => req.member
+  restaurantController.getUsers 
+);
 
 export default routerAdmin;
