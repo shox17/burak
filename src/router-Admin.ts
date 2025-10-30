@@ -44,5 +44,10 @@ routerAdmin.get(
   restaurantController.verifyRestaurant, // Middleware to verify restaurant  => req.member
   restaurantController.getUsers 
 );
+routerAdmin.post(
+  "/user/edit",
+  restaurantController.verifyRestaurant, // Middleware to verify restaurant  => req.member
+  restaurantController.updateChosenUser 
+);
 
 export default routerAdmin;
