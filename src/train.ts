@@ -203,14 +203,33 @@
 // Yuqoridagi misolda array tarkibida faqatgina ikkita yagona son mavjud bular 10 hamda 35
 // Qolganlari nested bo'lib yoki type'lari number emas.
 
-function calculateSumOfNumbers(arr: any[]): number {
-  let sum = 0;
-  for (let item of arr) {
-    if (typeof item === "number") {
-      sum += item;
-    }
-  }
-  return sum;
-}
+// function calculateSumOfNumbers(arr: any[]): number {
+//   let sum = 0;
+//   for (let item of arr) {
+//     if (typeof item === "number") {
+//       sum += item;
+//     }
+//   }
+//   return sum;
+// }
 
-console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35])); // Output: 45
+// console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35])); // Output: 45
+
+// ============================================================
+
+// TASK P:
+
+// Parametr sifatida yagona object qabul qiladigan function yozing.
+// Qabul qilingan objectni nested array sifatida convert qilib qaytarsin
+
+// MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
+
+function objectToArray(obj: { [key: string]: any }): [string, any][] {
+  let result: [string, any][] = [];
+  for (let key in obj) {
+    result.push([key, obj[key]]);
+  }
+  return result;
+}
+console.log(objectToArray({ a: 10, b: 20 })); // Output: [['a', 10], ['b', 20]]
+
