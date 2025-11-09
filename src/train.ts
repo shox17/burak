@@ -224,12 +224,54 @@
 
 // MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
 
-function objectToArray(obj: { [key: string]: any }): [string, any][] {
-  let result: [string, any][] = [];
-  for (let key in obj) {
-    result.push([key, obj[key]]);
-  }
-  return result;
-}
-console.log(objectToArray({ a: 10, b: 20 })); // Output: [['a', 10], ['b', 20]]
+// function objectToArray(obj: { [key: string]: any }): [string, any][] {
+//   let result: [string, any][] = [];
+//   for (let key in obj) {
+//     result.push([key, obj[key]]);
+//   }
+//   return result;
+// }
+// console.log(objectToArray({ a: 10, b: 20 })); // Output: [['a', 10], ['b', 20]]
 
+// TASK Q:
+
+// Shunday function yozing, u 2 ta parametrga ega bo'lib
+// birinchisi object, ikkinchisi string bo'lsin.
+// Agar qabul qilinayotgan ikkinchi string, objectning
+// biror bir propertysiga mos kelsa, 'true', aks holda mos kelmasa 'false' qaytarsin.
+
+// MASALAN: hasProperty({ name: "BMW", model: "M3" }, "model"); return true;
+// Ushbu misolda, 'model' string, objectning propertysiga mos kelganligi uchun 'true' natijani qaytarmoqda
+
+// MASALAN: hasProperty({ name: "BMW", model: "M3" }, "year"); return false;
+// Ushbu misolda, ikkinchi argument sifatida berilayotgan 'year' objectning
+// propertysida mavjud bo'lmaganligi uchun 'false' natijani qaytarmoqda.
+
+// function hasProperty(obj: object, key: string): boolean {
+//     return key in obj;
+// }
+
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); // true
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "year"));  // false
+
+// ============================================================================
+
+// TASK R
+
+// Shunday function yozing, u string parametrga ega bo'lsin.
+// Agar argument sifatida berilayotgan string, "1 + 2" bo'lsa,
+// string ichidagi sonlarin yig'indisni hisoblab, number holatida qaytarsin
+
+// MASALAN: calculate("1 + 3"); return 4;
+// 1 + 3 = 4, shu sababli 4 natijani qaytarmoqda.
+
+function calculate(str: string): number {
+  let parts = str.split(" + ");
+  let sum = 0;
+  for (let part of parts) {
+    sum += parseInt(part);
+  }
+  return sum;
+}
+
+console.log(calculate("1 + 3")); // Output: 4

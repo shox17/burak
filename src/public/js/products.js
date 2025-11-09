@@ -30,8 +30,8 @@ $(function () {
         productStatus: productStatus,
       });
       console.log("response:", response);
-      const result = response.data;
-      if (result.data) {
+      const result = response?.data;
+      if (result?.data) {
         $(".new-product-status").blur();
       } else alert("Product update failed!");
     } catch (err) {
@@ -66,7 +66,7 @@ function previewFileHandler(input, order) {
   const imgClassName = input.className;
   console.log("input:", input);
 
-  const file = $(`.${imgClassName}`).get(0).files[0],
+  const file = $(`.${imgClassName}`).get(0)?.files[0],
     fileType = file["type"],
     validImageTypes = ["image/jpg", "image/jpeg", "image/png"];
 

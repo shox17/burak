@@ -10,6 +10,7 @@ import session from "express-session";
 import ConnectMongoDB from "connect-mongodb-session";
 
 const MongoDBStore = ConnectMongoDB(session);
+// MongoDB Session Store (TCP)
 const store = new MongoDBStore({
   uri: String(process.env.MONGO_URL),
   collection: "sessions",
@@ -23,6 +24,7 @@ app.use(express.json());
 app.use(morgan(MORGAN_FORMAT));
 
 /** 2. SESSIONS **/
+// req => req.session, fetch member info from session: req.session.member using Session Id in Cookie
 app.use(
   session({
     secret: String(process.env.SESSION_SECRET),
@@ -34,6 +36,7 @@ app.use(
     saveUninitialized: true,
   })
 );
+// Make session available in views as res.locals.member
 app.use(function(req, res, next){
     const sessionInstance = req.session as T;
     res.locals.member = sessionInstance.member;

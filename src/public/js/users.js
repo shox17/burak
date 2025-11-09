@@ -12,7 +12,7 @@ $(function(){
     })
     .then((response) => {
       console.log("response:", response);
-      const result = response.data;
+      const result = response?.data;
   
       if (result?.data) {
         $(".member-status").blur();

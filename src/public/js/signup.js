@@ -6,7 +6,7 @@ $(function () {
 
   fileTarget.on("change", function () {
     if (window.FileReader) {
-      const uploadFile = $(this)[0].files[0],
+      const uploadFile = $(this)[0]?.files[0],
         fileType = uploadFile["type"],
         validImageType = ["image/jpg", "image/jpeg", "image/png"];
       if (!validImageType.includes(fileType)) {
@@ -18,7 +18,7 @@ $(function () {
             .attr("src", URL.createObjectURL(uploadFile))
             .addClass("success");
         }
-        filename = $(this)[0].files[0].name;
+        filename = $(this)[0]?.files[0]?.name;
       }
       $(this).siblings(".upload-name").val(filename);
     }

@@ -3,6 +3,7 @@ dotenv.config();
 import mongoose from 'mongoose';
 import app from './app';
 
+// Connect to MongoDB and start the server (TCP)
 mongoose
     .connect(process.env.MONGO_URL as string, {})
     .then((data) => {
