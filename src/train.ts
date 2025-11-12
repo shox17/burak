@@ -265,13 +265,32 @@
 // MASALAN: calculate("1 + 3"); return 4;
 // 1 + 3 = 4, shu sababli 4 natijani qaytarmoqda.
 
-function calculate(str: string): number {
-  let parts = str.split(" + ");
-  let sum = 0;
-  for (let part of parts) {
-    sum += parseInt(part);
-  }
-  return sum;
+// function calculate(str: string): number {
+//   let parts = str.split(" + ");
+//   let sum = 0;
+//   for (let part of parts) {
+//     sum += parseInt(part);
+//   }
+//   return sum;
+// }
+
+// console.log(calculate("1 + 3")); // Output: 4
+
+// ============================================================================
+
+// TASK-S:
+
+// Shunday function yozing, 
+// u numberlardan tashkil topgan array qabul qilsin 
+// va osha numberlar orasidagi 
+// tushib qolgan sonni topib uni return qilsin
+// MASALAN: missingNumber([3, 0, 1]) return 2
+
+function missingNumber(arr: number[]): number {
+    const n = arr.length;
+    const expectedSum = (n * (n + 1)) / 2;
+    const actualSum = arr.reduce((acc, num) => acc + num, 0);
+    return expectedSum - actualSum;
 }
 
-console.log(calculate("1 + 3")); // Output: 4
+console.log(missingNumber([3, 0, 1])); // Output: 2
