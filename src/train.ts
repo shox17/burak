@@ -280,9 +280,9 @@
 
 // TASK-S:
 
-// Shunday function yozing, 
-// u numberlardan tashkil topgan array qabul qilsin 
-// va osha numberlar orasidagi 
+// Shunday function yozing,
+// u numberlardan tashkil topgan array qabul qilsin
+// va osha numberlar orasidagi
 // tushib qolgan sonni topib uni return qilsin
 // MASALAN: missingNumber([3, 0, 1]) return 2
 
@@ -299,7 +299,7 @@
 
 // TASK T
 
-// Shunday function tuzing, 
+// Shunday function tuzing,
 // u sonlardan tashkil topgan 2'ta array qabul qilsin.
 // Va ikkala arraydagi sonlarni tartiblab bir arrayda qaytarsin.
 
@@ -328,12 +328,42 @@
 // MASALAN: sumOdds(9) return 4; sumOdds(11) return 5;
 
 // Yuqoridagi birinchi misolda, argument sifatida, 9 berilmoqda.
-// Va 0'dan boshlab sanaganda 9'gacha 4'ta toq son mavjud. 
+// Va 0'dan boshlab sanaganda 9'gacha 4'ta toq son mavjud.
 // Keyingi namunada ham xuddi shunday xolat takrorlanmoqda.
 
-function sumOdds(num: number): number {
-  return Math.floor(num / 2);
+// function sumOdds(num: number): number {
+//   return Math.floor(num / 2);
+// }
+
+// console.log(sumOdds(9));
+// console.log(sumOdds(11));
+
+// ========================================================
+
+// TASK V
+
+// Shunday function yozing, uni string parametri bo'lsin.
+// Va bu function stringdagi har bir harfni o'zi bilan
+// necha marotaba taktorlanganligini ko'rsatuvchi object qaytarsin.
+
+// MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}
+
+// Yuqoridagi misolda, 'hello' so'zi tarkibida
+// qatnashgan harflar necha marotaba takrorlangini bilan
+// object sifatida qaytarilmoqda.
+
+// TASK V
+
+function countChars(str: string): { [key: string]: number } {
+  const charCount: { [key: string]: number } = {};
+  for (let char of str) {
+    if (charCount[char]) {
+      charCount[char]++;
+    } else {
+      charCount[char] = 1;
+    }
+  }
+  return charCount;
 }
 
-console.log(sumOdds(9));
-console.log(sumOdds(11));
+console.log(countChars("hello")); // Output: { h: 1, e: 1, l: 2, o: 1 }
