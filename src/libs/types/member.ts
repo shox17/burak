@@ -46,6 +46,12 @@ export interface MemberUpdateInput {
     memberImage?: string;
 }
 
+export interface ExtendedRequest extends Request {
+    member: Member; // Authenticated member information
+    file: Express.Multer.File; // Single uploaded file
+    files: Express.Multer.File[]; // Multiple uploaded files
+}
+
 export interface AdminRequest extends Request {
     member: Member; // Logged-in member information
     session: Session & {member: Member}; // Session with member info
