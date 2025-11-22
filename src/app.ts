@@ -20,6 +20,7 @@ const store = new MongoDBStore({
 /** 1. ENTRANCE **/
 const app = express();
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/uploads", express.static("./uploads"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
@@ -39,11 +40,11 @@ app.use(
   })
 );
 // Make session available in views as res.locals.member
-app.use(function(req, res, next){
-    const sessionInstance = req.session as T;
-    res.locals.member = sessionInstance.member;
-    next();
-})
+app.use(function (req, res, next) {
+  const sessionInstance = req.session as T;
+  res.locals.member = sessionInstance.member;
+  next();
+});
 
 /** 3. VIEWS **/
 app.set("views", path.join(__dirname, "views"));
