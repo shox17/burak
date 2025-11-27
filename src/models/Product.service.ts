@@ -65,7 +65,7 @@ class ProductService {
       const input: ViewInput = {
         memberId: memberId,
         viewRefId: productId,
-        ViewGroup: ViewGroup.PRODUCT,
+        viewGroup: ViewGroup.PRODUCT,
       };
       const existView = await this.viewService.checkViewExistence(input);
       
