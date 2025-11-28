@@ -440,10 +440,31 @@
 // ikkala array'da ishtirok etgan o'xshash sonlarni yagona arrayga
 // joylab return qilmoqda.
 
-function findIntersection(arr1: number[], arr2: number[]): number[] {
-    const set2 = new Set(arr2);
+// function findIntersection(arr1: number[], arr2: number[]): number[] {
+//     const set2 = new Set(arr2);
     
-    return arr1.filter(item => set2.has(item));
+//     return arr1.filter(item => set2.has(item));
+// }
+
+// console.log(findIntersection([1, 2, 3], [3, 2, 0]));
+
+// TASK Z
+
+// Shunday function yozing. Bu function sonlardan iborat array
+// qabul qilsin. Function'ning vazifasi array tarkibidagi juft
+// sonlarni topib ularni yig'disini qaytarsin.
+
+// MASALAN:
+// sumEvens([1, 2, 3]); return 2;
+// sumEvens([1, 2, 3, 2]); return 4;
+
+// Yuqoridagi misolda, bizning funktsiya
+// berilayotgan array tarkibidagi sonlar ichidan faqatgina juft bo'lgan
+// sonlarni topib, ularni hisoblab yig'indisini qaytarmoqda.
+
+function sumEvens(arr: number[]): number {
+    return arr.reduce((acc, curr) => (curr % 2 === 0 ? acc + curr : acc), 0);
 }
 
-console.log(findIntersection([1, 2, 3], [3, 2, 0]));
+console.log(sumEvens([1, 2, 3])); // return 2
+console.log(sumEvens([1, 2, 3, 2])); // return 4
