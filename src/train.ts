@@ -462,9 +462,22 @@
 // berilayotgan array tarkibidagi sonlar ichidan faqatgina juft bo'lgan
 // sonlarni topib, ularni hisoblab yig'indisini qaytarmoqda.
 
-function sumEvens(arr: number[]): number {
-    return arr.reduce((acc, curr) => (curr % 2 === 0 ? acc + curr : acc), 0);
+// function sumEvens(arr: number[]): number {
+//     return arr.reduce((acc, curr) => (curr % 2 === 0 ? acc + curr : acc), 0);
+// }
+
+// console.log(sumEvens([1, 2, 3])); // return 2
+// console.log(sumEvens([1, 2, 3, 2])); // return 4
+
+// TASK-ZB:
+
+// Shunday function yozing, uni 2 ta number parametri bolsin va berilgan sonlar orasidan random raqam return qilsin
+
+// MASALAN: randomBetween(30, 50) return 45
+
+function randomBetween(min: number, max: number): number {
+    return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-console.log(sumEvens([1, 2, 3])); // return 2
-console.log(sumEvens([1, 2, 3, 2])); // return 4
+// Tekshirish:
+console.log(randomBetween(30, 50)); 
