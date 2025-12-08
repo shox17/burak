@@ -442,7 +442,7 @@
 
 // function findIntersection(arr1: number[], arr2: number[]): number[] {
 //     const set2 = new Set(arr2);
-    
+
 //     return arr1.filter(item => set2.has(item));
 // }
 
@@ -480,7 +480,7 @@
 // }
 
 // // Tekshirish:
-// console.log(randomBetween(30, 50)); 
+// console.log(randomBetween(30, 50));
 
 // ================================================
 
@@ -497,9 +497,39 @@
 
 // °C va °F => Tempraturani o'lchashda ishlatiladigan o'lchov birligi.
 
-function celsiusToFahrenheit(celsius: number): number {
-    return (celsius * 1.8) + 32;
+// function celsiusToFahrenheit(celsius: number): number {
+//     return (celsius * 1.8) + 32;
+// }
+
+// console.log(celsiusToFahrenheit(0));  // Output: 32
+// console.log(celsiusToFahrenheit(10)); // Output: 50
+
+// ==============================================================
+
+// TASK ZD
+
+// Shunday function yozing. Bu function o'ziga, parametr sifatida
+// birinchi oddiy number, keyin yagona array va uchinchi bo'lib oddiy number
+// qabul qilsin. Berilgan birinchi number parametr, arrayning tarkibida indeks bo'yicha hisoblanib,
+// shu aniqlangan indeksni uchinchi number parametr bilan alashtirib, natija sifatida
+// yangilangan arrayni qaytarsin.
+
+// MASALAN: changeNumberInArray(1, [1,3,7,2], 2) return [1,2,7,2];
+
+// Yuqoridagi misolda, birinchi raqam bu '1' va arrayning '1'chi indeksi bu 3.
+// Bizning function uchinchi berilgan '2' raqamini shu '3' bilan almashtirib,
+// yangilangan arrayni qaytarmoqda.
+
+// TASK ZD
+
+function changeNumberInArray(
+  index: number,
+  arr: number[],
+  value: number
+): number[] {
+  const newArr = [...arr];
+  newArr[index] = value;
+  return newArr;
 }
 
-console.log(celsiusToFahrenheit(0));  // Output: 32
-console.log(celsiusToFahrenheit(10)); // Output: 50
+console.log(changeNumberInArray(1, [1, 3, 7, 2], 2)); // Output: [1, 2, 7, 2]
