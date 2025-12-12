@@ -522,14 +522,39 @@
 
 // TASK ZD
 
-function changeNumberInArray(
-  index: number,
-  arr: number[],
-  value: number
-): number[] {
-  const newArr = [...arr];
-  newArr[index] = value;
-  return newArr;
+// function changeNumberInArray(
+//   index: number,
+//   arr: number[],
+//   value: number
+// ): number[] {
+//   const newArr = [...arr];
+//   newArr[index] = value;
+//   return newArr;
+// }
+
+// console.log(changeNumberInArray(1, [1, 3, 7, 2], 2)); // Output: [1, 2, 7, 2]
+
+// ===========================================
+
+// TASK-ZF
+
+// TASK-ZF:
+
+// Shunday function yozing, uni string parametri bolsin. String ichidagi har bir sozni bosh harflarini katta harf qilib qaytarsin lekin 1 yoki 2 harfdan iborat sozlarni esa oz holicha qoldirsin.
+// MASALAN: capitalizeWords('name should be a string') return 'Name Should be a String'
+
+function capitalizeWords(str: string): string {
+  const words = str.split(" ");
+
+  const result = words.map((word) => {
+    if (word.length > 2) {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    } else {
+      return word;
+    }
+  });
+
+  return result.join(" ");
 }
 
-console.log(changeNumberInArray(1, [1, 3, 7, 2], 2)); // Output: [1, 2, 7, 2]
+console.log(capitalizeWords("name should be a string"));
