@@ -578,19 +578,40 @@
 // eng katta raqamgacha tushib qolgan raqamlarni bir arrayda qaytarsin.
 // MASALAN: findDisappearedNumbers([1, 3, 4, 7]) return [2, 5, 6]
 
-function findDisappearedNumbers(arr: number[]): number[] {
-  const result: number[] = [];
-  const min = Math.min(...arr);
-  const max = Math.max(...arr);
-  const numSet = new Set(arr);
+// function findDisappearedNumbers(arr: number[]): number[] {
+//   const result: number[] = [];
+//   const min = Math.min(...arr);
+//   const max = Math.max(...arr);
+//   const numSet = new Set(arr);
 
-  for (let i = min; i <= max; i++) {
-    if (!numSet.has(i)) {
-      result.push(i);
-    }
-  }
+//   for (let i = min; i <= max; i++) {
+//     if (!numSet.has(i)) {
+//       result.push(i);
+//     }
+//   }
 
-  return result;
+//   return result;
+// }
+
+// console.log(findDisappearedNumbers([1, 3, 4, 7]));
+
+// TASK ZI
+
+// Shundan function yozing, bu function 3 soniydan so'ng
+// "Hello World!" so'zini qaytarsin.
+
+// MASALAN: delayHelloWorld("Hello World"); return "Hello World";
+
+// TASK ZI
+
+function delayHelloWorld(message: string): Promise<string> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(message);
+    }, 3000);
+  });
 }
 
-console.log(findDisappearedNumbers([1, 3, 4, 7]));
+delayHelloWorld("Hello World").then((data) => {
+  console.log(data);
+});
