@@ -604,14 +604,31 @@
 
 // TASK ZI
 
-function delayHelloWorld(message: string): Promise<string> {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(message);
-    }, 3000);
-  });
+// function delayHelloWorld(message: string): Promise<string> {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       resolve(message);
+//     }, 3000);
+//   });
+// }
+
+// delayHelloWorld("Hello World").then((data) => {
+//   console.log(data);
+// });
+
+// TASK ZJ:
+
+// Shunday function yozing, u berilgan array ichidagi
+// raqamlarni qiymatini hisoblab qaytarsin.
+
+// MASALAN: reduceNestedArray([1, [1, 2, [4]]]); return 8;
+
+// Yuqoridagi misolda, array nested bo'lgan holdatda ham,
+// bizning function ularning yig'indisini hisoblab qaytarmoqda.
+
+function reduceNestedArray(arr: any[]): number {
+    const flatArr = arr.flat(Infinity);
+    return flatArr.reduce((acc: number, val: number) => acc + val, 0);
 }
 
-delayHelloWorld("Hello World").then((data) => {
-  console.log(data);
-});
+console.log(reduceNestedArray([1, [1, 2, [4]]])); // Output: 8
