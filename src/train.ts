@@ -626,9 +626,31 @@
 // Yuqoridagi misolda, array nested bo'lgan holdatda ham,
 // bizning function ularning yig'indisini hisoblab qaytarmoqda.
 
-function reduceNestedArray(arr: any[]): number {
-    const flatArr = arr.flat(Infinity);
-    return flatArr.reduce((acc: number, val: number) => acc + val, 0);
+// function reduceNestedArray(arr: any[]): number {
+//     const flatArr = arr.flat(Infinity);
+//     return flatArr.reduce((acc: number, val: number) => acc + val, 0);
+// }
+
+// console.log(reduceNestedArray([1, [1, 2, [4]]])); // Output: 8
+
+// TASK-ZK:
+
+// Shunday function yozing, u har soniyada 
+// bir marta consolega 1 dan 5 gacha bolgan raqamlarni chop etsin 
+// va 5 soniyadan keyin ishini toxtatsin.
+// MASALAN: printNumbers()
+
+// TASK-ZK
+
+function printNumbers(): void {
+    let currentNum = 1;
+    const intervalId = setInterval(() => {
+        console.log(currentNum);
+        if (currentNum === 5) {
+            clearInterval(intervalId);
+        }
+        currentNum++;
+    }, 1000);
 }
 
-console.log(reduceNestedArray([1, [1, 2, [4]]])); // Output: 8
+printNumbers();
