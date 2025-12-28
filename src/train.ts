@@ -635,22 +635,36 @@
 
 // TASK-ZK:
 
-// Shunday function yozing, u har soniyada 
-// bir marta consolega 1 dan 5 gacha bolgan raqamlarni chop etsin 
+// Shunday function yozing, u har soniyada
+// bir marta consolega 1 dan 5 gacha bolgan raqamlarni chop etsin
 // va 5 soniyadan keyin ishini toxtatsin.
 // MASALAN: printNumbers()
 
 // TASK-ZK
 
-function printNumbers(): void {
-    let currentNum = 1;
-    const intervalId = setInterval(() => {
-        console.log(currentNum);
-        if (currentNum === 5) {
-            clearInterval(intervalId);
-        }
-        currentNum++;
-    }, 1000);
+// function printNumbers(): void {
+//     let currentNum = 1;
+//     const intervalId = setInterval(() => {
+//         console.log(currentNum);
+//         if (currentNum === 5) {
+//             clearInterval(intervalId);
+//         }
+//         currentNum++;
+//     }, 1000);
+// }
+
+// printNumbers();
+
+// TASK-ZL:
+
+// Shunday function yozing, u parametrda berilgan stringni
+//  kebab casega otkazib qaytarsin. Bosh harflarni kichik harflarga ham otkazsin.
+// MASALAN: stringToKebab(“I love Kebab”) return “i-love-kebab”
+
+function stringToKebab(str: string): string {
+  const lowerStr = str.toLowerCase();
+  return lowerStr.split(" ").join("-");
 }
 
-printNumbers();
+console.log(stringToKebab("I love Kebab"));
+// Output: "i-love-kebab"
