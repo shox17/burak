@@ -661,10 +661,31 @@
 //  kebab casega otkazib qaytarsin. Bosh harflarni kichik harflarga ham otkazsin.
 // MASALAN: stringToKebab(“I love Kebab”) return “i-love-kebab”
 
-function stringToKebab(str: string): string {
-  const lowerStr = str.toLowerCase();
-  return lowerStr.split(" ").join("-");
-}
+// function stringToKebab(str: string): string {
+//   const lowerStr = str.toLowerCase();
+//   return lowerStr.split(" ").join("-");
+// }
 
-console.log(stringToKebab("I love Kebab"));
-// Output: "i-love-kebab"
+// console.log(stringToKebab("I love Kebab"));
+// // Output: "i-love-kebab"
+
+
+// TASK ZM:
+
+// Shunday function yozing, va bu function parametr
+// sifatida raqamlarni qabul qilsin. Bu function qabul qilingan
+// raqamlarni orqasiga o'girib qaytarsin
+
+// MASALAN: reverseInteger(123456789); return 987654321;
+
+// Yuqoridagi misolda, function kiritilgan raqamlarni orqasiga
+// o'girib (reverse) qilib qaytarmoqda.
+
+// TASK ZM
+
+function reverseInteger(num: number): number {
+
+    const reversed = parseInt(num.toString().split('').reverse().join(''));
+    return reversed * Math.sign(num);
+}
+console.log(reverseInteger(123456789)); // Output: 987654321
