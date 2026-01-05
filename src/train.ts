@@ -683,9 +683,39 @@
 
 // TASK ZM
 
-function reverseInteger(num: number): number {
+// function reverseInteger(num: number): number {
 
-    const reversed = parseInt(num.toString().split('').reverse().join(''));
-    return reversed * Math.sign(num);
+//     const reversed = parseInt(num.toString().split('').reverse().join(''));
+//     return reversed * Math.sign(num);
+// }
+// console.log(reverseInteger(123456789)); // Output: 987654321
+
+// TASK-ZO:
+
+// Shunday function yozing, u parametrdagi string ichidagi 
+// qavslar miqdori balansda ekanligini aniqlasin. 
+// Ya'ni ochish("(") va yopish(")") qavslar soni bir xil bolishi kerak.
+
+// MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true
+
+// TASK-ZO
+
+function areParenthesesBalanced(str: string): boolean {
+    let count = 0;
+
+    for (let char of str) {
+        if (char === '(') {
+            count++;
+        } 
+        else if (char === ')') {
+            count--;
+        }
+
+        if (count < 0) {
+            return false;
+        }
+    }
+    return count === 0;
 }
-console.log(reverseInteger(123456789)); // Output: 987654321
+
+console.log(areParenthesesBalanced("string()ichida(qavslar)soni()balansda")); // true
