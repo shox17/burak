@@ -669,7 +669,6 @@
 // console.log(stringToKebab("I love Kebab"));
 // // Output: "i-love-kebab"
 
-
 // TASK ZM:
 
 // Shunday function yozing, va bu function parametr
@@ -692,30 +691,62 @@
 
 // TASK-ZO:
 
-// Shunday function yozing, u parametrdagi string ichidagi 
-// qavslar miqdori balansda ekanligini aniqlasin. 
+// Shunday function yozing, u parametrdagi string ichidagi
+// qavslar miqdori balansda ekanligini aniqlasin.
 // Ya'ni ochish("(") va yopish(")") qavslar soni bir xil bolishi kerak.
 
 // MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true
 
 // TASK-ZO
 
-function areParenthesesBalanced(str: string): boolean {
-    let count = 0;
+// function areParenthesesBalanced(str: string): boolean {
+//     let count = 0;
 
-    for (let char of str) {
-        if (char === '(') {
-            count++;
-        } 
-        else if (char === ')') {
-            count--;
-        }
+//     for (let char of str) {
+//         if (char === '(') {
+//             count++;
+//         }
+//         else if (char === ')') {
+//             count--;
+//         }
 
-        if (count < 0) {
-            return false;
-        }
-    }
-    return count === 0;
+//         if (count < 0) {
+//             return false;
+//         }
+//     }
+//     return count === 0;
+// }
+
+// console.log(areParenthesesBalanced("string()ichida(qavslar)soni()balansda")); // true
+
+// TASK-ZP:
+
+// Shunday function yozing, u parametridagi string ichidagi raqam va sonlarni sonini sanasin.
+// MASALAN: countNumberAndLetters(“string152%\¥”) return {number:3, letter:6}
+
+// TASK-ZP
+
+// Qaytariladigan natija turini belgilab olamiz (Interface)
+interface CountResult {
+  number: number;
+  letter: number;
 }
 
-console.log(areParenthesesBalanced("string()ichida(qavslar)soni()balansda")); // true
+function countNumberAndLetters(str: string): CountResult {
+  let numberCount = 0;
+  let letterCount = 0;
+
+  for (let char of str) {
+    if (/[0-9]/.test(char)) {
+      numberCount++;
+    } else if (/[a-zA-Z]/.test(char)) {
+      letterCount++;
+    }
+  }
+  return {
+    number: numberCount,
+    letter: letterCount,
+  };
+}
+
+console.log(countNumberAndLetters("string152%¥"));
