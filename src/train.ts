@@ -727,26 +727,52 @@
 // TASK-ZP
 
 // Qaytariladigan natija turini belgilab olamiz (Interface)
-interface CountResult {
-  number: number;
-  letter: number;
-}
+// interface CountResult {
+//   number: number;
+//   letter: number;
+// }
 
-function countNumberAndLetters(str: string): CountResult {
-  let numberCount = 0;
-  let letterCount = 0;
+// function countNumberAndLetters(str: string): CountResult {
+//   let numberCount = 0;
+//   let letterCount = 0;
 
-  for (let char of str) {
-    if (/[0-9]/.test(char)) {
-      numberCount++;
-    } else if (/[a-zA-Z]/.test(char)) {
-      letterCount++;
+//   for (let char of str) {
+//     if (/[0-9]/.test(char)) {
+//       numberCount++;
+//     } else if (/[a-zA-Z]/.test(char)) {
+//       letterCount++;
+//     }
+//   }
+//   return {
+//     number: numberCount,
+//     letter: letterCount,
+//   };
+// }
+
+// console.log(countNumberAndLetters("string152%¥"));
+
+// TASK ZQ:
+
+// Shunday function yozing, u parametridagi 
+// array ichida 2 marta qaytarilgan sonlarni alohida araryda qaytarsin.
+// MASALAN: findDuplicates([1,2,3,4,5,4,3,4]) return [3, 4]
+
+// TASK ZQ
+
+function findDuplicates(arr: number[]): number[] {
+    const seen = new Set<number>();
+    const duplicates = new Set<number>();
+
+    for (let num of arr) {
+        if (seen.has(num)) {
+            duplicates.add(num);
+        } 
+        else {
+            seen.add(num);
+        }
     }
-  }
-  return {
-    number: numberCount,
-    letter: letterCount,
-  };
+    return Array.from(duplicates);
 }
 
-console.log(countNumberAndLetters("string152%¥"));
+console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4])); 
+// Output: [3, 4] (yoki [4, 3])
