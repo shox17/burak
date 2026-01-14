@@ -759,20 +759,54 @@
 
 // TASK ZQ
 
-function findDuplicates(arr: number[]): number[] {
-    const seen = new Set<number>();
-    const duplicates = new Set<number>();
+// function findDuplicates(arr: number[]): number[] {
+//     const seen = new Set<number>();
+//     const duplicates = new Set<number>();
 
-    for (let num of arr) {
-        if (seen.has(num)) {
-            duplicates.add(num);
-        } 
-        else {
-            seen.add(num);
+//     for (let num of arr) {
+//         if (seen.has(num)) {
+//             duplicates.add(num);
+//         } 
+//         else {
+//             seen.add(num);
+//         }
+//     }
+//     return Array.from(duplicates);
+// }
+
+// console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4])); 
+// Output: [3, 4] (yoki [4, 3])
+
+// TASK-ZR:
+
+// Shunday function yozing, u 2 ta array parametr qabul qilsin.
+// Siz bu ikki arrayning qiymatlari o'xshash bo'lishini 
+// (ya'ni, ularning barcha elementlari bir xil bo'lishini) tekshirishingiz kerak.
+
+// MASALAN:
+// areArraysEqual([1, 2, 3], [3, 1, 2]) // true
+// areArraysEqual([1, 2, 3], [3, 1, 2, 1]) // true
+// areArraysEqual([1, 2, 3], [4, 1, 2]) // false
+
+// TASK-ZR
+
+function areArraysEqual(arr1: number[], arr2: number[]): boolean {
+    const set1 = new Set(arr1);
+    const set2 = new Set(arr2);
+
+    if (set1.size !== set2.size) {
+        return false;
+    }
+
+    for (let item of set1) {
+        if (!set2.has(item)) {
+            return false;
         }
     }
-    return Array.from(duplicates);
+
+    return true;
 }
 
-console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4])); 
-// Output: [3, 4] (yoki [4, 3])
+console.log(areArraysEqual([1, 2, 3], [3, 1, 2]));       // true
+console.log(areArraysEqual([1, 2, 3], [3, 1, 2, 1]));    // true
+console.log(areArraysEqual([1, 2, 3], [4, 1, 2]));       // false
