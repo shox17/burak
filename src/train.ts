@@ -753,7 +753,7 @@
 
 // TASK ZQ:
 
-// Shunday function yozing, u parametridagi 
+// Shunday function yozing, u parametridagi
 // array ichida 2 marta qaytarilgan sonlarni alohida araryda qaytarsin.
 // MASALAN: findDuplicates([1,2,3,4,5,4,3,4]) return [3, 4]
 
@@ -766,7 +766,7 @@
 //     for (let num of arr) {
 //         if (seen.has(num)) {
 //             duplicates.add(num);
-//         } 
+//         }
 //         else {
 //             seen.add(num);
 //         }
@@ -774,13 +774,13 @@
 //     return Array.from(duplicates);
 // }
 
-// console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4])); 
+// console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4]));
 // Output: [3, 4] (yoki [4, 3])
 
 // TASK-ZR:
 
 // Shunday function yozing, u 2 ta array parametr qabul qilsin.
-// Siz bu ikki arrayning qiymatlari o'xshash bo'lishini 
+// Siz bu ikki arrayning qiymatlari o'xshash bo'lishini
 // (ya'ni, ularning barcha elementlari bir xil bo'lishini) tekshirishingiz kerak.
 
 // MASALAN:
@@ -790,23 +790,50 @@
 
 // TASK-ZR
 
-function areArraysEqual(arr1: number[], arr2: number[]): boolean {
-    const set1 = new Set(arr1);
-    const set2 = new Set(arr2);
+// function areArraysEqual(arr1: number[], arr2: number[]): boolean {
+//     const set1 = new Set(arr1);
+//     const set2 = new Set(arr2);
 
-    if (set1.size !== set2.size) {
-        return false;
+//     if (set1.size !== set2.size) {
+//         return false;
+//     }
+
+//     for (let item of set1) {
+//         if (!set2.has(item)) {
+//             return false;
+//         }
+//     }
+
+//     return true;
+// }
+
+// console.log(areArraysEqual([1, 2, 3], [3, 1, 2]));       // true
+// console.log(areArraysEqual([1, 2, 3], [3, 1, 2, 1]));    // true
+// console.log(areArraysEqual([1, 2, 3], [4, 1, 2]));       // false
+
+// TASK ZS:
+
+// Shunday function yozing, bu function parametrdagi array ichida
+// bir marotaba takrorlangan element'ni qaytarsin
+
+// MASALAN: singleNumber([4, 2, 1, 2, 1]); return 4;
+
+// TASK ZS
+
+function singleNumber(nums: number[]): number {
+  const countMap = new Map<number, number>();
+
+  for (let num of nums) {
+    countMap.set(num, (countMap.get(num) || 0) + 1);
+  }
+
+  for (let [key, value] of countMap) {
+    if (value === 1) {
+      return key;
     }
+  }
 
-    for (let item of set1) {
-        if (!set2.has(item)) {
-            return false;
-        }
-    }
-
-    return true;
+  return 0;
 }
 
-console.log(areArraysEqual([1, 2, 3], [3, 1, 2]));       // true
-console.log(areArraysEqual([1, 2, 3], [3, 1, 2, 1]));    // true
-console.log(areArraysEqual([1, 2, 3], [4, 1, 2]));       // false
+console.log(singleNumber([4, 2, 1, 2, 1])); // Output: 4
