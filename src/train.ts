@@ -820,20 +820,48 @@
 
 // TASK ZS
 
-function singleNumber(nums: number[]): number {
-  const countMap = new Map<number, number>();
+// function singleNumber(nums: number[]): number {
+//   const countMap = new Map<number, number>();
 
-  for (let num of nums) {
-    countMap.set(num, (countMap.get(num) || 0) + 1);
-  }
+//   for (let num of nums) {
+//     countMap.set(num, (countMap.get(num) || 0) + 1);
+//   }
 
-  for (let [key, value] of countMap) {
-    if (value === 1) {
-      return key;
+//   for (let [key, value] of countMap) {
+//     if (value === 1) {
+//       return key;
+//     }
+//   }
+
+//   return 0;
+// }
+
+// console.log(singleNumber([4, 2, 1, 2, 1])); // Output: 4
+
+// TASK-ZT:
+
+// Shunday function yozing, u parametridagi string ichida 1 martadan ortiq 
+// qaytarilmagan birinchi harf indeksini qaytarsin.
+// MASALAN: firstUniqueCharIndex(“stamp”) return 0
+
+// TASK-ZT
+
+function firstUniqueCharIndex(str: string): number {
+    const charCount: { [key: string]: number } = {};
+
+    for (let char of str) {
+        charCount[char] = (charCount[char] || 0) + 1;
     }
-  }
 
-  return 0;
+    for (let i = 0; i < str.length; i++) {
+        const char = str[i];
+        if (charCount[char] === 1) {
+            return i;
+        }
+    }
+
+    return -1;
 }
 
-console.log(singleNumber([4, 2, 1, 2, 1])); // Output: 4
+console.log(firstUniqueCharIndex("stamp"));  
+
