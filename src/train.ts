@@ -840,28 +840,54 @@
 
 // TASK-ZT:
 
-// Shunday function yozing, u parametridagi string ichida 1 martadan ortiq 
+// Shunday function yozing, u parametridagi string ichida 1 martadan ortiq
 // qaytarilmagan birinchi harf indeksini qaytarsin.
 // MASALAN: firstUniqueCharIndex(“stamp”) return 0
 
 // TASK-ZT
 
-function firstUniqueCharIndex(str: string): number {
-    const charCount: { [key: string]: number } = {};
+// function firstUniqueCharIndex(str: string): number {
+//     const charCount: { [key: string]: number } = {};
 
-    for (let char of str) {
-        charCount[char] = (charCount[char] || 0) + 1;
+//     for (let char of str) {
+//         charCount[char] = (charCount[char] || 0) + 1;
+//     }
+
+//     for (let i = 0; i < str.length; i++) {
+//         const char = str[i];
+//         if (charCount[char] === 1) {
+//             return i;
+//         }
+//     }
+
+//     return -1;
+// }
+
+// console.log(firstUniqueCharIndex("stamp"));
+
+// TASK-ZU:
+
+// Shunday function yozing, u parametridagi
+// array ichida takrorlanmagan raqamlar yig'indisini qaytarsin.
+// MASALAN: sumOfUnique([1,2,3,2]) return 4
+
+// TASK-ZU
+
+function sumOfUnique(nums: number[]): number {
+  const counts: { [key: number]: number } = {};
+  for (let num of nums) {
+    counts[num] = (counts[num] || 0) + 1;
+  }
+
+  let sum = 0;
+
+  for (let key in counts) {
+    if (counts[key] === 1) {
+      sum += Number(key);
     }
+  }
 
-    for (let i = 0; i < str.length; i++) {
-        const char = str[i];
-        if (charCount[char] === 1) {
-            return i;
-        }
-    }
-
-    return -1;
+  return sum;
 }
 
-console.log(firstUniqueCharIndex("stamp"));  
-
+console.log(sumOfUnique([1, 2, 3, 2]));
